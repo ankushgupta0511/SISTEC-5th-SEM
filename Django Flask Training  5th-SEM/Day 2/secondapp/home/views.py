@@ -1,0 +1,52 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def sistec(request):
+    s = """
+    <h1 style="text-align: center; margin-top: 5px; color: blue; font-size: 30px;">Sagar Group of Institutions</h1>
+    <p style="margin-top:  5px; text-align: center;  font-size: 20px;">Sagar Group of Institutions which was established in the year 2007
+        under the aegis of Shri Agrawal Educational & Welfare Society with the main objective of imparting quality
+        education.
+
+        Sagar Group of Institutions have emerged as a group of Best Private Colleges in Bhopal with its state-of-the-art
+        facility and its expertise in Engineering, Pharmacy, and MBA education. Three institutional campuses rich in
+        infrastructure and amenities proudly flourish under the aegis of the brand Sagar Group of Institutions.
+
+        The brand has a strong motivation towards innovation in curriculum implementation with its unique
+        industry-oriented pedagogy. It further aspires to be a part of an educational revolution in technical education,
+        impacting advanced futuristic technologies in the national and international framework, and aims to be one of
+        the finest providers of technical education in India.</p>
+
+    <h1 style="color: rgba(187, 8, 8, 0.836); text-align: center; margin: 10px;">Engineering
+    </h1>
+    <p style="margin-top: 5px; font-size: 20px; text-align: center;">
+        The B.Tech. Engineering Program at Sagar Group of Institutions is developed from an industrial point of view,
+        with a
+        great focus on modern technologies employed in the industries. Engineers are the focal point in our economy to
+        design, test, and develop the next generation of products and services for the betterment of society. In this
+        regard, the pedagogy is designed based on industry-oriented training modules a level extra than the standard
+        university curriculum. Similarly, the MTech Engineering Program is developed from a research point of view to
+        inculcate the spirit of innovation and development in Science & Technology.</p>
+
+
+    <div style="padding: 25px;">
+
+        <h2 style="color: black; margin-left: 20px; margin-top: 25px;">B. Tech</h2>
+        <hr>
+        <li style=" font-size: 20px; "> Civil Engineering</li>
+        <li style=" font-size: 20px; "> Computer Science & Engineering</li>
+        <li style=" font-size: 20px; "> Computer Science & Information Technology</li>
+        <li style=" font-size: 20px; "> CSE with Artificial Intelligence and Data Science</li>
+        <li style=" font-size: 20px; "> CSE with Artificial Intelligence and Machine Learning</li>
+        <li style=" font-size: 20px; "> CSE with Internet of Things</li>
+        <li style=" font-size: 20px; "> CSE with Cyber Security</li>
+        <li style=" font-size: 20px; "> Electrical & Electronics Engineering</li>
+        <li style=" font-size: 20px; "> Electrical Engineering</li>
+        <li style=" font-size: 20px; "> Electronics & Communication Engineering</li>
+        <li style=" font-size: 20px; "> Mechanical Engineering</li>
+    </div>
+    """
+    return HttpResponse(s)
+
+# Create your views here.

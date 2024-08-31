@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'mycss.css' %}" />
+    
+  </head>
+  <body>
+    <h1 style="color: navy; font-family: Arial, sans-serif; font-size: 36px; text-align: center; font-weight: bold; margin-top: 20px;">Sagar Group of Institutions</h1>
+    <div style="text-align: center; margin: 20px 0;">
+      <img src="{% static 'sistec.jpg' %}" alt="Sagar Group of Institutions" style="max-width: 70%; margin: auto; align-items: center; height: auto;" />
+    </div>
+
+      {% block content %}
+
+      {% endblock %}
+
+    <footer style="margin-top: 25px; text-align: right; font-size: 30px; font: bold; color: red;">
+      <p>Written by Ankush Gupta</p>
+    </footer>
+  </body>
+</html>
