@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block title %}
+  Welcome to Online Testing System
+{% endblock %}
+
+{% block top %}
+  <a href="{% url 'OTS:registrationForm' %}"><button type="button" class="btn btn-primary px-4">SignUp</button></a>
+
+  <a href="{% url 'OTS:login' %}"><button type="button" class="btn btn-primary px-4">Login</button></a>
+{% endblock %}
+
+{% block content %}
+  <p>Welcome to Online Testing System</p>
+{% endblock content %}
