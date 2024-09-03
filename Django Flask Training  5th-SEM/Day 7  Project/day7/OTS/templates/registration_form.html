@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block title%} Welcome to Registration from System {%endblock%}
+
+{% block top %}
+<a href="{% url 'OTS:login' %}">login</a>
+{% endblock %} 
+
+{% block content %}
+<div>
+    <form action="{% url 'OTS:storeCandidate' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username"><br>
+        <label for="password">Password</label>
+        <input type="password" name="password"><br>
+        <label for="name">Name</label>
+        <input type="text" name="name"><br>
+        
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">   
+
+    </form>
+    Already have an account,<a href="{% url 'OTS:login' %}">click here</a>
+</div>
+{% endblock %}

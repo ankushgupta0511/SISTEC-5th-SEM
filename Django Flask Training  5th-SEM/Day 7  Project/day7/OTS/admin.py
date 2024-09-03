@@ -1,9 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
-
-from OTS.models import *
-
+from OTS.models import Candidate,Question,Result
 
 admin.site.register(Candidate)
 admin.site.register(Question)
