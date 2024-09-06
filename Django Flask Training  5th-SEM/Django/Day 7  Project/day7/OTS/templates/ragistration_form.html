@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block title %}
+  Welcome to Registration Form
+{% endblock %}
+
+{% block top %}
+    <a href="{% url 'OTS:login' %}" ><button type="button" class="btn btn-primary px-4  col-4 ">Login</button></a>
+{% endblock %}
+
+{% block content %}
+  <div class="mx-auto col-4 border p-4  my-4 shadow-lg rounded">
+    <form action="{% url 'OTS:storeCandidate' %}" method="post" class="mt-4">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" />
+      </div>
+
+      <div class="mb-3 text-center" >
+        <input type="submit" value="Submit" class="btn btn-primary px-4" />
+        <input type="reset" value="Clear" class="btn btn-primary px-4"  />
+      </div>
+    </form>
+    <p class="text-center">
+      Already have account <a href="{% url 'OTS:login' %}">click here</a>
+    </p>
+  </div>
+{% endblock %}
