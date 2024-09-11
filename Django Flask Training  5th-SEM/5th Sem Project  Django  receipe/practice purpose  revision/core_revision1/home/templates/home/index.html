@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+index page
+{% endblock %}
+
+
+{% block body %}
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ullam voluptate, quis ad odit soluta magni. Amet ut,
+ipsam nulla sunt sit, magni quod quia eum, quibusdam fuga repudiandae saepe libero sequi. Fugit eaque molestiae
+doloremque totam delectus? Quisquam, quos cupiditate ea minima quaerat eveniet!
+
+{{peoples}}
+
+
+<table class="container mt-5">
+    <tr>
+        <th>S. no</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>can Vote</th>
+    </tr>
+    {% for people in peoples%}
+    <tr>
+        <th>{{forloop.counter}}</th>
+        <th>{{people.name}}</th>
+        <th>{{people.age}}</th>
+        <th {% if people.age >= 18 %} style='background-color:blue' {% else %} style='background-color:red' {% endif %} >
+            {% if people.age >= 18 %}
+            yes
+            {% else %}
+            no
+            {% endif %}
+        </th>
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

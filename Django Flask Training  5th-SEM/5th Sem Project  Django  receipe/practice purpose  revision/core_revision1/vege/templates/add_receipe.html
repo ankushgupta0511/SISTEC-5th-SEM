@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+receipes page
+{% endblock %}
+
+
+
+{% block nav %}
+    <div >
+        <!-- <button type="submit" class="btn btn-success"></button> -->
+        <a href="{% url 'receipes' %}" type="submit" class="btn btn-success px-4">Your Receipe</a>
+    </div>
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+
+<!-- <h3>{{request.user}}</h3> -->
+<div class="container mt-5 ">
+    <h3>
+        {{request.user}}
+    </h3>
+    <hr >
+    <form  action="{% url 'add-receipe' %}" class='my-3 col-6 mx-auto card p-3 shadow-lg ' method='post'enctype='multipart/form-data'>
+        {% csrf_token %}
+        <h1>Add Receipe</h1>
+        <hr>
+        <div class="mb-3">
+            <label for="receipe_name" class="form-label">Receipe name</label>
+            <input type="text" class="form-control" id="receipe_name" required name="receipe_name"
+                aria-describedby="emailHelp" />
+        </div>
+        <div class="mb-3">
+            <label for="receipe_description" class="form-label">Receipe Description</label>
+            <Textarea id="receipe_description" name="receipe_description" class="form-control" required></Textarea>
+        </div>
+        <div class="mb-3">
+            <label for="receipe_image" class="form-label">Tag</label>
+            <input type="file" class="form-control" id="receipe_image" name="receipe_image"
+                aria-describedby="emailHelp" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Add Receipe</button>
+    </form>
+    
+
+
+</div>
+
+
+
+recipes page
+
+
+
+{% endblock %}
