@@ -13,9 +13,9 @@ receipes page
 <div class="container mt-5">
     <form class='my-3 col-6 mx-auto card p-3 shadow-lg' method='post'enctype='multipart/form-data'>
         {% csrf_token %}
-        <h1>Login</h1>
+        <h1 class="text-2xl mb-2 mt-3 font-medium">Login</h1>
         
-        <hr>
+        <hr class="mb-6">
         
     {% if messages %}
     <!-- {{message.tags}} -->
@@ -38,7 +38,7 @@ receipes page
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" name='password' id="password" />
       </div>
-      <p>Don't have account <a href="/register/">Register</a> </p>
+      <p class="p-2 text-sm">Don't have account <a href="/register/" class="text-indigo-500">Register</a> </p>
       <button type="submit" class="btn btn-primary">Submit</button>
       <!-- </form> -->
     </form>
