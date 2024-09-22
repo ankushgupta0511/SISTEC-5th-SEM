@@ -43,45 +43,6 @@ class DiseasePredict(APIView):
         print('prediction :- ',model[0])
         print('\n\n')
         
-        
-        # print('\n\n')
-        # symptoms = 'itching,skin_rash,nodal_skin_eruptions'
-        # user_symptoms = [s.strip() for s in symptoms.split(',')]
-        # user_symptoms = [symptom.strip("[]' ") for symptom in user_symptoms]
-        # predicted_disease = get_predicted_value(user_symptoms)
-        # print('\n','predicted_disease :- ',predicted_disease,'\n')
-        
-        
-        
-        # desc, pre, med, die, wrkout = helper(predicted_disease)
-        
-        
-        
-        # print("=================predicted disease============")
-        # print(predicted_disease)
-        # print("=================description==================")
-        # print(desc)
-        # print("=================precautions==================")
-        # i = 1
-        # for p_i in pre[0]:
-        #     print(i, ": ", p_i)
-        #     i += 1
-
-        # print("=================medications==================")
-        # for m_i in med:
-        #     print(i, ": ", m_i)
-        #     i += 1
-
-        # print("=================workout==================")
-        # for w_i in wrkout:
-        #     print(i, ": ", w_i)
-        #     i += 1
-
-        # print("=================diets==================")
-        # for d_i in die:
-        #     print(i, ": ", d_i)
-        #     i += 1
-
 
         if serializer.is_valid(raise_exception=True):
             print('testing 2 :- ',serializer.data)
@@ -99,16 +60,49 @@ class DiseasePredict(APIView):
             predicted_disease = get_predicted_value(user_symptoms)
             print('\n','predicted_disease testing :- ',predicted_disease,'\n')
             desc, pre, med, die, wrkout = helper(predicted_disease)
+            
+            
+            print("=================precautions==================")
+            pre = ', '.join(pre[0])
+            print(pre)
 
+
+
+            print("=================medications==================")
+            import ast
+            string_list = med
+            actual_list = ast.literal_eval(string_list[0])
+            medi = ', '.join(actual_list)
+            print(medi)
+            
+            
+            
+            
+            
+            print("=================workout==================")
+            workout = (', '.join(wrkout))
+            print(workout)
+            
+            
+
+                        
+            print("=================diets==================")
+            import ast
+            string_list = die
+            actual_list = ast.literal_eval(string_list[0])
+            diets = ', '.join(actual_list)
+            print(diets)
+                        
+                        
          
             data = {
                 "symtoms_name":symtoms_name,
                 "predicted_disease":predicted_disease,
                 "predicted_descriptions":desc,
-                "predicted_precations":f"{pre[0]}",   
-                "predicted_medications":f"{med[0]}",
-                "predicted_diets":f"{die[0]}",
-                "predicted_workout":f"{wrkout.values}",
+                "predicted_precations":pre,   
+                "predicted_medications":medi,
+                "predicted_diets":diets,
+                "predicted_workout":workout,
                 "msg":"Successfully Model Predictions!!"
             }
             

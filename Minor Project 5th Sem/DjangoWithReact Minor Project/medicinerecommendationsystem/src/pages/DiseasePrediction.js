@@ -14,13 +14,15 @@ const symptoms_dict = { 'itching': 0, 'skin_rash': 1, 'nodal_skin_eruptions': 2,
 
 const DiseasePrediction = () => {
 
-    const [poppopWindow, setPoppopWindow] = useState(false)
 
 
     const [modelPredictor, { isLoading }] = useModelPredictorMutation();
+
     const [server_error, setServerError] = useState({})
     const [server_msg, setServerMsg] = useState({})
     const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+    const [poppopWindow, setPoppopWindow] = useState(false)
+    const [poppopData, setPoppopData] = useState([])
 
 
 
@@ -46,7 +48,12 @@ const DiseasePrediction = () => {
 
 
     const predicted_msg = (e) => {
-        console.log('predicted_msg  :-  ',e)
+        // console.log('predicted_msg  :-  ',e)
+        // console.log('predicted_msg  :-  ',typeof(e))
+        const list_value = e.split(',').map(item => item.trim());
+        console.log('list_value  :-  ', list_value)
+        // console.log('list_value  :-  ',typeof(list_value))
+        setPoppopData(list_value)
 
     }
 
@@ -96,14 +103,12 @@ const DiseasePrediction = () => {
                 >
                     <div className="bg-white shadow-[0_4px_12px_-5px_rgba(0,0,0,0.4)] p-6 w-full max-w-sm rounded-lg font-[sans-serif] overflow-hidden mx-auto mt-2">
                         <h3 className="text-xl font-bold text-gray-800">Heading</h3>
-                        <p className="mt-3 text-sm text-gray-500 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor.</p>
 
-                        {/* <div className="relative flex items-center px-1 bg-gray-50 border-2 focus-within:border-[#007bff] focus-within:bg-white rounded-lg mt-6">
-                            <input type="email" placeholder="Enter email"
-                                className="p-3 text-gray-800 w-full text-sm bg-transparent outline-none" />
-                            <button type="button"
-                                className="px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700">Send</button>
-                        </div> */}
+                        <ul>
+                            {poppopData.map((value, index) => (
+                                <li key={index}>{value}</li>
+                            ))}
+                        </ul>
                     </div>
 
                 </ModalHeader>
@@ -149,14 +154,19 @@ const DiseasePrediction = () => {
                             <Button type='submit' variant='contained' sx={{ mt: 3, mb: 2, px: 5 }}>Predict Model</Button>
                         </Box>
 
+                        {server_msg.msg ?
 
-                        <Box className='flex  justify-between'>
-                            <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_disease); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Diease</Button>
-                            <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_precations); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Precations</Button>
-                            <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_descriptions); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Description</Button>
-                            <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_workout); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Workout</Button>
-                            <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_diets); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Suggested Diets</Button>
-                        </Box>
+                            <Box className='flex  justify-between'>
+                                <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_disease); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Diease</Button>
+                                <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_precations); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Precations</Button>
+                                <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_descriptions); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Description</Button>
+                                <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_workout); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Workout</Button>
+                                <Button onClick={() => { setPoppopWindow(true); predicted_msg(server_msg.predicted_diets); }} className='bg-red-200' sx={{ mt: 3, mb: 2, px: 5 }}>Suggested Diets</Button>
+                            </Box>
+
+                            :
+                            ""
+                        }
                     </form>
 
 
