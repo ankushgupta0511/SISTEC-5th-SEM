@@ -1,3 +1,34 @@
+# important command it remove all problem of power shell
+```
+// Run following command in Windows Powershell ISE  in our system
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+
+
+# this command imp which install freeze and give all dependencies in txt file
+```
+python -m pip freeze > requirements.txt
+```
+
+
+# install all dependencies which written in requirements.txt file
+```
+pip install -r requirements.txt
+```
+
+# error arise and verry bad error
+```
+Fatal error in launcher: Unable to create process using '"E:\All_programe_new_folder\Django With React  by Geeky Shows\Full Authentication Using Django With React\env\Scripts\python.exe"  "E:\All_programe_new_folder\ankushgupta 5th sem\Minor Project 5th Sem\DjangoWithReact Minor Project Temp\env\Scripts\pip.exe" --version': The system cannot find the file specified.
+
+
+// resolve it help by fire command cmd
+
+
+```
+
+
+
 # install packages inside 'djangoauthapi1'
 ``` 
 pip install djangorestframework
